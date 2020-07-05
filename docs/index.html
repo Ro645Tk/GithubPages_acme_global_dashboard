@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character Set Meta Tag -->
+    <meta charset="UTF-8">
+
+    <title>ACME, inc. Global Dashboard</title>
+
+    <!-- SEO Meta Tags -->
+    <!--
+    Es importante que al crear contenido web se incluya los meta tags
+    que los buscadores siempre estan censando la informacion que
+    colocamos. Estas etiquetas de meta tags son importantes, porque
+    tiene que...posicionemos nuestro contenido
+    -->
+    <meta name="description"  content="ACME Global Dashboard to illustrate the use of Google Charts Library Set">
+    <meta name="keywords" content="Dashboard, Google Charts, HTML, CSS, JavaScript, Bootstrap">
+    <meta name="author" content="ACME Software Developer Team">
+
+    <!-- Responsive Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- https://getbootstrap.com/docs/4.5/getting-started/introduction/ -->
+    <!-- Bootstrap Framework -->
+    <!-- Bootstrap CSS Library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+    <!-- Bootstrap JavaScript Library -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- https://developers.google.com/chart/interactive/docs/quick_start -->
+    <!-- Google Charts Library Set -->
+    <!-- Load AJAX API -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Custom JavaScript Library -->
+    <!--
+    Normalmente se utiliza text/javascript pero utilizaremos algo diferente para
+    experimentar. Nosotros creamos 2 archivos javascript (charts.js y main.js), en
+    javascript tenemos 2 caminos: si quiero hago un solo archivo que es una sabana
+    inmensa con tod0 lo que quiero o introdusco el concepto de modulos que es lo
+    que vamos a ver ahora.
+    La descomposicion modular de la logica de javascript hace que tengamos
+    segmentados los bloques en archivos con un proposito especifico y que
+    tengamos un archivo principal que es quien importa lo que necesita de
+    los otros modulos. Entonces nuestro modulo principal de este proyecto
+    va a ser "main.js", entonces por esta razon en vez de ponerle
+    text/javascript (que seria mi enfoca si trabajo con 1 solo archivo),
+    le ponemos "module"
+
+    Como vemos, aqui solamente se esta invocando al main.js, no estamos
+    incovando a charts.js porque main.js esta importando a charts.js
+    -->
+    <script src="scripts/main.js" type="module"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/acme-logo.jpg" width="auto" height="32px"
+                 class="d-inline-block-align-top"
+                 alt="ACME Logo" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle Navigation"></button>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Platform</a>
+            </li>
+        </ul>
+        <form class="form-online my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <!-- Title and Subtitle Section -->
+    <h1 style="padding-top: 50px">ACME Global Dashboard</h1>
+    <h2 style="padding-bottom: 100px">Realtime Performance Indicators.</h2>
+
+    <!-- Dashboard Section -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <!-- Div that will hold the Pie Chart -->
+                <!--
+                Aqui solo se le ha puesto un div vacio donde deberiamos pintar unos de
+                los graficos. Se modificara luego
+                -->
+                <div id="pie_div"></div>
+                <div class="card-body">
+                    <h5 class="card-title">Quarter Sales</h5>
+                    <p class="card-text">Last Quarter Sales information.</p>
+                    <a href="#" class="btn btn-primary">See detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <!-- Div that will hold the Axis Trick chart -->
+                <!--
+                Aqui solo se le ha puesto un div vacio donde deberiamos pintar unos de
+                los graficos. Se modificara luego
+                -->
+                <div id="axis_div_tick_div"></div>
+                <div class="card-body">
+                    <h5 class="card-title">Population Distribution</h5>
+                    <p class="card-text">Population distribution information. Only largest cities have
+                        been considered in the study.</p>
+                </div>
+                <a href="#" class="btn btn-primary">See detail</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<!--
+Recordar ser organizado en el codigo, comentar bien las secciones (comentar en ingles
+para que sea mas legible)
+
+Este conjunto de bibliotecas ayudan bastante para representar informacion, en este nivel
+solo se esta viendo data estatica y no data dinamica. Por ahora es importante saber que la
+combinacion de esta biblioteca con un poco de javascript se puede presentar un dashboard
+
+Para Github Pages hay que dar la estuctura que vamos a necesitar, ese es el proyecto que
+tiene varias cosas, pero nos piden que el proyecto se exponga en una carpeta "docs" para
+que pueda ser susceptible de que se pueda presentar. Entonces podriamos renombrar la
+carpeta "public" para que se llame "docs" y asi pueda facilitarse la publicacion o bien
+hacemos una copia en otra carpeta, pero que se llame "docs". Los pasos a seguir son:
+1. Renombrar la carpeta public a docs
+2. Ir a VCS -> Enable version control integration
+3. "Seleccionar la version..." -> Git (Esto crea un repositorio local para este proyecto)
+4. VCS -> Commit
+5. Se selecciona todos los archivos -> Se escribe el mensaje del Commit -> Commit -> Commit
+6. VCS -> Import into version control -> Share project on Github
+7. Se escoge el nombre del repositorio, se hace una breve descripcion
+-->
